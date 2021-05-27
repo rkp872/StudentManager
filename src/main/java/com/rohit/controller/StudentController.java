@@ -18,7 +18,7 @@ import com.rohit.Helper.Message;
 import com.rohit.entity.Student;
 import com.rohit.services.StudentServices;
 
-@CrossOrigin
+@CrossOrigin(origins = "https://student-manager-client.herokuapp.com/")
 @RestController
 @RequestMapping("/student")
 public class StudentController {
