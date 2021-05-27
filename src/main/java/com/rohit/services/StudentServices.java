@@ -13,13 +13,18 @@ public class StudentServices {
 	@Autowired
 	private StudentRepository studentRepository;
 
+	@Autowired
+	private EmailService emailService;
+
 	public List<Student> getAllStudent() {
+
 		return studentRepository.findAll();
 	}
 
 	public boolean createStudent(Student student) {
 		try {
 			studentRepository.save(student);
+			emailService.sendEmail("Signup", "Signup successfully Welcome", student.getEmail());
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
